@@ -6,8 +6,11 @@ import { AppError } from "../../error";
 import { compare } from "bcryptjs";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
+import { createLoginSchemas } from "../../schemas/login";
 
 const createLoginService = async (data: ILoginRequest): Promise<string> => {
+  data = createLoginSchemas.parse(data);
+
   const queryString = `
     SELECT *
     FROM users

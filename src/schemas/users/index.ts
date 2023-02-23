@@ -11,7 +11,7 @@ const createUserSchema = z.object({
       return hashSync(pass);
     }),
   admin: z.boolean().optional(),
-  active: z.boolean(),
+  active: z.boolean().optional(),
 });
 
 const userSchema = createUserSchema.extend({
