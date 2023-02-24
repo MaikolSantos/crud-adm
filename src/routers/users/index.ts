@@ -52,6 +52,7 @@ usersRoutes.delete(
 usersRoutes.put(
   "/:id/recover",
   verifyTokenIsValidMiddleware,
+  ensureUserExistsMiddleware,
   ensureIsAdminMiddleware,
   activeUserController
 );
